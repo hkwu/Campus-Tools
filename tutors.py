@@ -1,9 +1,10 @@
 __author__ = 'Kelvin Wu'
 
 from uwaterlooapi import UWaterlooAPI
+import config
 
-version = 1.0
-uw = UWaterlooAPI(api_key="523a61d18c31481685e8957becd8727f")
+version = 1.01
+uw = UWaterlooAPI(api_key=config.super_secret_key)
 tutors = uw.tutors()
 
 
