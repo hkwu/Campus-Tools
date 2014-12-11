@@ -45,7 +45,7 @@ class TopMenu(Menu):
             else:
                 scrn_clr = sp.call('cls', shell=True)
                 TopMenu().__str__()
-                return TopMenu().choice()
+                TopMenu().choice()
         else:
             scrn_clr = sp.call('cls', shell=True)
             sys.exit()

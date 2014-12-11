@@ -47,7 +47,6 @@ def user_enters():
     user_day = raw_input("On what day? ").capitalize()
     user_meal = raw_input("For which meal? ").lower()
     curr_menu(user_location, user_meal, user_day)
-    print user_result
     print "Press 'B' to return to the menu.\n"
     while not raw_input("> ").upper() == "B":
         scrn_clr = sp.call('cls', shell=True)
