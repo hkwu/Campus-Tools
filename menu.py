@@ -21,7 +21,7 @@ def curr_menu(location, meal, day):
                 print "\nSorry, there is no menu available for that day!\n"
             break
     else:
-        print "\nSorry, we couldn't find that outlet!\n"
+        print "\nSorry, we couldn't find that outlet's menu!\n"
 
 
 # meal_getter() outputs the dishes for the meal type
