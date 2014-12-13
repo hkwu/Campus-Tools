@@ -40,7 +40,7 @@ def meal_getter(meal, daily_menu, location, day):
         print "\nSorry, we don't serve that here!\n"
 
 
-# user_enters() is the basic I/O loop
+# menu_user_enters() is the basic I/O loop
 def menu_user_enters():
     import interface
     interface.CampusFood().title()
