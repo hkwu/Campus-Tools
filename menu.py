@@ -2,7 +2,6 @@ __author__ = 'Kelvin Wu'
 
 from uwaterlooapi import UWaterlooAPI
 import config
-import subprocess as sp
 
 uw = UWaterlooAPI(api_key=config.super_secret_key)
 menu = uw.menu()
@@ -42,17 +41,16 @@ def meal_getter(meal, daily_menu, location, day):
 
 
 # user_enters() is the basic I/O loop
-def user_enters():
+def menu_user_enters():
+    import interface
+    interface.CampusFood().title()
+    print "Enter your specifications.\n"
     user_location = raw_input("Which location? ").lower()
     user_day = raw_input("On what day? ").capitalize()
     user_meal = raw_input("For which meal? ").lower()
     curr_menu(user_location, user_meal, user_day)
-    print "Press 'B' to return to the menu.\n"
-    while not raw_input("> ").upper() == "B":
-        scrn_clr = sp.call('cls', shell=True)
-        print "Press 'B' to return to the menu.\n"
-    else:
-        import interface
-        scrn_clr = sp.call('cls', shell=True)
-        interface.CampusFood().__str__()
-        interface.CampusFood().choice()
+    print "Press any key to return.\n"
+    raw_input("> ")
+    interface.scrn_clr()
+    interface.CampusFood().__str__()
+    interface.CampusFood().choice()

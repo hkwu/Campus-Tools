@@ -3,42 +3,53 @@ __author__ = 'Kelvin Wu'
 from uwaterlooapi import UWaterlooAPI
 import config
 
-version = 1.01
 uw = UWaterlooAPI(api_key=config.super_secret_key)
 tutors = uw.tutors()
 
 
+# info_getter() extracts the queried course and its relevant
+# tutor information
 def info_getter(course_letter, course_number):
-    for tutor_info in tutors:
-        if tutor_info['subject'] == course_letter \
-                and tutor_info['catalog_number'] == course_number:
-            print "Course: {0} {1} {2}\n# of Tutors: {3}\nContact: {4}" \
-                .format(tutor_info['subject'], tutor_info['catalog_number'],
-                        tutor_info['title'], tutor_info['tutors_count'],
-                        tutor_info['contact_url'])
-            break
+    if not len(course_letter) <= 5:
+        print "\nYour course abbreviation should be no more than five letters.\n"
+        print "Print press any key to return.\n"
+        raw_input("> ")
+        import interface
+        interface.scrn_clr()
+        interface.CampusTutors().__str__()
+        interface.CampusTutors().choice()
+    elif not len(course_number) == 3:
+        print "\nYour course number should be three digits long.\n"
+        print "Press any key to return.\n"
+        raw_input("> ")
+        import interface
+        interface.scrn_clr()
+        interface.CampusTutors().__str__()
+        interface.CampusTutors().choice()
     else:
-        print "Sorry, that course is not on the list."
+        for tutor_info in tutors:
+            if tutor_info['subject'] == course_letter \
+                    and tutor_info['catalog_number'] == course_number:
+                print "\n", "-" * 20
+                print "Course: {} {} {}\n# of Tutors: {}\nContact: {}" \
+                    .format(tutor_info['subject'], tutor_info['catalog_number'],
+                            tutor_info['title'], tutor_info['tutors_count'],
+                            tutor_info['contact_url']), "\n", "-" * 20, "\n"
+                break
+        else:
+            print "Sorry, that course is not on the list."
 
 
-def decider(choice):
-    user_input = choice.lower()
-    if user_input in ['y', 'yes']:
-        return True
-    elif user_input in ['n', 'no']:
-        print "Thanks for using the program."
-        return False
-    else:
-        return decider(raw_input("That is not a valid command. Try again.\n"))
-
-print 'UWaterloo Tutor Finder v{}'.format(version)
-init_state = True
-while init_state:
-    user_subject = raw_input("Enter your subject code.\n").upper()
-    while not len(user_subject) <= 5:
-        user_subject = raw_input("That is too long. Your subject code should be no more than five letters.\n").upper()
-    user_catalog = str(raw_input("Enter your subject number.\n"))
-    while not len(user_catalog) == 3:
-        user_catalog = str(raw_input("That is invalid. Your subject number should be three digits.\n"))
+# user_enters() is the basic I/O loop
+def user_enters():
+    import interface
+    interface.CampusTutors().title()
+    print "Enter your specifications.\n"
+    user_subject = raw_input("Course Abbreviation: ").upper()
+    user_catalog = str(raw_input("Course Number: "))
     info_getter(user_subject, user_catalog)
-    init_state = decider(raw_input("Would you like to search for another course?\n"))
+    print "Press any key to return.\n"
+    raw_input("> ")
+    interface.scrn_clr()
+    interface.CampusTutors().__str__()
+    interface.CampusTutors().choice()
