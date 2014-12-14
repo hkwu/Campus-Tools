@@ -1,4 +1,4 @@
-UWaterloo-API-Stuff
+Campus-Tools
 ===================
 A collection of code using UWaterloo API. Python shell by Albert O'Connor.
 
