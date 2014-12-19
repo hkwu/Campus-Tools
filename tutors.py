@@ -18,8 +18,8 @@ def info_getter(course_letter, course_number):
         interface.scrn_clr()
         interface.CampusTutors().__str__()
         interface.CampusTutors().choice()
-    elif not len(course_number) == 3:
-        print "\nYour course number should be three digits long.\n"
+    elif not len(course_number) <= 4:
+        print "\nYour course number should be less than four digits long.\n"
         print "Press any key to return.\n"
         raw_input("> ")
         import interface
@@ -37,7 +37,7 @@ def info_getter(course_letter, course_number):
                             tutor_info['contact_url']), "\n", "-" * 20, "\n"
                 break
         else:
-            print "Sorry, that course is not on the list."
+            print "\nSorry, that course is not on the list.\n"
 
 
 # user_enters() is the basic I/O loop
