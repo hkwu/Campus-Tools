@@ -5,6 +5,24 @@ import config
 
 uw = UWaterlooAPI(api_key=config.super_secret_key)
 menu = uw.menu()
+locations = uw.locations()
+
+
+# ====================================================
+# menu_user_enters() gets the input for curr_menu()
+def menu_user_enters():
+    import interface
+    interface.CampusFood().title()
+    print "Enter your specifications.\n"
+    user_location = raw_input("Location: ").lower()
+    user_day = raw_input("Day: ").capitalize()
+    user_meal = raw_input("Meal: ").lower()
+    curr_menu(user_location, user_meal, user_day)
+    print "Press any key to return.\n"
+    raw_input("> ")
+    interface.scrn_clr()
+    interface.CampusFood().__str__()
+    interface.CampusFood().choice()
 
 
 # curr_menu() outputs the daily menu
@@ -38,19 +56,41 @@ def meal_getter(meal, daily_menu, location, day):
         print ""
     else:
         print "\nSorry, we don't serve that here!\n"
+# ====================================================
 
 
-# menu_user_enters() is the basic I/O loop
-def menu_user_enters():
+# ====================================================
+# open_outlets() determines which outlets are open at the
+# current time
+def open_outlets():
+    open_now = []
+    for outlet in locations:
+        if outlet['is_open_now']:
+            open_now.append(outlet['outlet_name'])
+    outlet_printer(open_now)
+
+
+# outlet_printer() takes a list of outlets and prints the
+# list, if non-empty
+def outlet_printer(lst_of_outlets):
+    if lst_of_outlets:
+        print "These places are open right now:\n", "-" * 20
+        for outlet in lst_of_outlets:
+            print u"{}: {}".format(lst_of_outlets.index(outlet) + 1,
+                                   outlet)
+        print "-" * 20, "\n"
+    else:
+        print "\nSorry, it seems like no one's open right now!\n"
+
+
+# open_user_enters() is the wrapper for open_outlets()
+def open_user_enters():
     import interface
     interface.CampusFood().title()
-    print "Enter your specifications.\n"
-    user_location = raw_input("Which location? ").lower()
-    user_day = raw_input("On what day? ").capitalize()
-    user_meal = raw_input("For which meal? ").lower()
-    curr_menu(user_location, user_meal, user_day)
+    open_outlets()
     print "Press any key to return.\n"
     raw_input("> ")
     interface.scrn_clr()
     interface.CampusFood().__str__()
     interface.CampusFood().choice()
+# ====================================================
