@@ -9,22 +9,6 @@ locations = uw.locations()
 
 
 # ====================================================
-# menu_user_enters() gets the input for curr_menu()
-def menu_user_enters():
-    import interface
-    interface.CampusFood().title()
-    print "Enter your specifications.\n"
-    user_location = raw_input("Location: ").lower()
-    user_day = raw_input("Day: ").capitalize()
-    user_meal = raw_input("Meal: ").lower()
-    curr_menu(user_location, user_meal, user_day)
-    print "Press any key to return.\n"
-    raw_input("> ")
-    interface.scrn_clr()
-    interface.CampusFood().__str__()
-    interface.CampusFood().choice()
-
-
 # curr_menu() outputs the daily menu
 def curr_menu(location, meal, day):
     for outlet in menu['outlets']:
@@ -56,6 +40,22 @@ def meal_getter(meal, daily_menu, location, day):
         print ""
     else:
         print "\nSorry, we don't serve that here!\n"
+		
+		
+# menu_user_enters() gets the input for curr_menu()
+def menu_user_enters():
+    import interface
+    interface.CampusFood().title()
+    print "Enter your specifications.\n"
+    user_location = raw_input("Location: ").lower()
+    user_day = raw_input("Day: ").capitalize()
+    user_meal = raw_input("Meal: ").lower()
+    curr_menu(user_location, user_meal, user_day)
+    print "Press any key to return.\n"
+    raw_input("> ")
+    interface.scrn_clr()
+    interface.CampusFood().__str__()
+    interface.CampusFood().choice()
 # ====================================================
 
 
