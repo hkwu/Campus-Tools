@@ -7,8 +7,9 @@ uw = UWaterlooAPI(api_key=config.super_secret_key)
 weather = uw.current_weather()
 
 
-# basic_weather_get() will extract basic information from weather
+# ====================================================
 def basic_weather_get():
+    """extract basic information from weather"""
     print "Current Temperature (degrees): {}" \
         .format(weather['temperature_current_c'])
     print "Humidex: {}".format(weather['humidex_c'])
@@ -23,8 +24,22 @@ def basic_weather_get():
     print "-" * 20, "\n"
 
 
-# trivial_weather_get() will extract trivial information from weather
+def basic_user_enters():
+    """the interface for basic weather"""
+    import interface
+    interface.CampusWeather().title()
+    basic_weather_get()
+    print "Press any key to return.\n"
+    raw_input("> ")
+    interface.scrn_clr()
+    interface.CampusWeather().__str__()
+    interface.CampusWeather().choice()
+# ====================================================
+
+
+# ====================================================
 def trivial_weather_get():
+    """extract trivial information from weather"""
     print "Station (Latitude / Longitude): {} / {}" \
         .format(weather['latitude'], weather['longitude'])
     print "Station Elevation: {} m".format(weather['elevation_m'])
@@ -39,20 +54,8 @@ def trivial_weather_get():
     print "-" * 20, "\n"
 
 
-# basic_user_enters() is the basic I/O loop for basic weather
-def basic_user_enters():
-    import interface
-    interface.CampusWeather().title()
-    basic_weather_get()
-    print "Press any key to return.\n"
-    raw_input("> ")
-    interface.scrn_clr()
-    interface.CampusWeather().__str__()
-    interface.CampusWeather().choice()
-
-
-# trivial_user_enters() is the basic I/O loop for trivial weather
 def trivial_user_enters():
+    """the interface for trivial weather"""
     import interface
     interface.CampusWeather().title()
     trivial_weather_get()
@@ -61,3 +64,4 @@ def trivial_user_enters():
     interface.scrn_clr()
     interface.CampusWeather().__str__()
     interface.CampusWeather().choice()
+# ====================================================

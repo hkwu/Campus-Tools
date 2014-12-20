@@ -7,9 +7,10 @@ uw = UWaterlooAPI(api_key=config.super_secret_key)
 tutors = uw.tutors()
 
 
-# info_getter() extracts the queried course and its relevant
-# tutor information
+# ====================================================
 def info_getter(course_letter, course_number):
+    """extracts the queried course and its relevant
+    tutor information"""
     if not len(course_letter) <= 5:
         print "\nYour course abbreviation should be no more than five letters.\n"
         print "Print press any key to return.\n"
@@ -38,10 +39,12 @@ def info_getter(course_letter, course_number):
                 break
         else:
             print "\nSorry, that course is not on the list.\n"
+# ====================================================
 
 
-# user_enters() is the basic I/O loop
+# ====================================================
 def user_enters():
+    """gets the user's query"""
     import interface
     interface.CampusTutors().title()
     print "Enter your specifications.\n"
@@ -53,3 +56,4 @@ def user_enters():
     interface.scrn_clr()
     interface.CampusTutors().__str__()
     interface.CampusTutors().choice()
+# ====================================================

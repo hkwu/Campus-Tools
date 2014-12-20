@@ -4,13 +4,13 @@ import os
 import sys
 
 
-# Screen clear function
 def scrn_clr():
+    """Screen clear function"""
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-# Base menu class
 class Menu(object):
+    """Base menu class"""
     def __init__(self, menu_name, *args):
         self.menu_name = menu_name
         self.args = args
@@ -19,7 +19,7 @@ class Menu(object):
         avail_options = []
         for option in self.args:
             avail_options.append(option)
-        print "{} \nCoded by {}" \
+        print "{} by {}" \
             .format(self.menu_name,  __author__)
         print "=" * 20, "\n"
         for option in avail_options:
@@ -27,13 +27,13 @@ class Menu(object):
         print ""
 
     def title(self):
-        print "{} \nCoded by {}" \
+        print "{} by {}" \
             .format(self.menu_name, __author__)
         print "=" * 20, "\n"
 
 
-# The initial menu screen
 class TopMenu(Menu):
+    """Base menu class"""
     def __init__(self):
         super(TopMenu, self).__init__("CAMPUS TOOLS", "CAMPUS TUTORS",
                                       "CAMPUS FOOD", "CAMPUS WEATHER",
@@ -63,8 +63,8 @@ class TopMenu(Menu):
             sys.exit()
 
 
-# The Campus Tutors menu
 class CampusTutors(Menu):
+    """The Campus Tutors menu"""
     def __init__(self):
         super(CampusTutors, self).__init__("CAMPUS TUTORS",
                                            "SEARCH FOR TUTORS", "RETURN")
@@ -86,15 +86,16 @@ class CampusTutors(Menu):
             TopMenu().choice()
 
 
-# The Campus Food menu
 class CampusFood(Menu):
+    """The Campus Food menu"""
     def __init__(self):
         super(CampusFood, self).__init__("CAMPUS FOOD", "WHAT'S OPEN?",
-                                         "SEARCH FOR MENUS", "RETURN")
+                                         "SEARCH FOR MENUS", "NUTRITION INFO",
+                                         "RETURN")
 
     def choice(self):
         usr_input = raw_input("> ").upper()
-        while usr_input not in ["3", "RETURN"]:
+        while usr_input not in ["4", "RETURN"]:
             if usr_input in ["1", "WHAT'S OPEN?"]:
                 scrn_clr()
                 import menu
@@ -103,6 +104,10 @@ class CampusFood(Menu):
                 scrn_clr()
                 import menu
                 menu.menu_user_enters()
+            elif usr_input in ["3", "NUTRITION INFO"]:
+                scrn_clr()
+                import menu
+                menu.nutrition_user_enters()
             else:
                 scrn_clr()
                 CampusFood().__str__()
@@ -113,8 +118,8 @@ class CampusFood(Menu):
             TopMenu().choice()
 
 
-# The Campus Weather menu
 class CampusWeather(Menu):
+    """The Campus Weather menu"""
     def __init__(self):
         super(CampusWeather, self).__init__("CAMPUS WEATHER", "BASIC WEATHER",
                                             "TRIVIAL WEATHER", "RETURN")
