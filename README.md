@@ -7,8 +7,9 @@ Find available tutors to hire for various courses.
 
 ## Campus Food
 Information related to on-campus food. Features include:
-* Finding currently open outlets
+* Current open outlets
 * Menu lookup
+* Nutrition table lookup
 * ...
 
 ## Campus Weather
