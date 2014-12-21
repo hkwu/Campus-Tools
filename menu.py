@@ -98,7 +98,7 @@ def open_user_enters():
     interface.CampusFood().choice()
 # ====================================================
 
-# test
+
 # ====================================================
 def nutrition_info(prod_id):
     """gets the nutrition info for the given product ID"""
