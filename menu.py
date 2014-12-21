@@ -83,7 +83,7 @@ def outlet_printer(lst_of_outlets):
                                    outlet)
         print "-" * 20, "\n"
     else:
-        print "\nSorry, it seems like no one's open right now!\n"
+        print "Sorry, it seems like no one's open right now!\n"
 
 
 def open_user_enters():
@@ -110,12 +110,12 @@ def nutrition_info(prod_id):
         print """Serving Size: {}
 Calories: {}
 Total Fat (g / %): {} / {}
-  Saturated Fat (g / %): {} / {}
-  Trans Fat (g / %): {} / {}
+  Saturated Fat: {} / {}
+  Trans Fat: {} / {}
 Cholesterol (mg): {}
 Sodium (mg / %): {} / {}
 Carbohydrates (g / %): {} / {}
-  Fibre (g / %): {} / {}
+  Fibre: {} / {}
   Sugar (g): {}
 Protein (g): {}""" \
             .format(product['serving_size'], product['calories'],
