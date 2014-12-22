@@ -28,13 +28,20 @@ Description: {}""".format(infosession['employer'], infosession['date'],
                           infosession['audience'], infosession['programs'],
                           infosession['description'])
             print "-" * 20
-        print "\nPress 'Y' to load more, or any other key to return.\n"
         import interface
-        if raw_input("> ").upper() == "Y":
-            interface.scrn_clr()
-            interface.CampusInfo().title()
-            sesh_getter(sesh[5:])
+        if len(sesh[5:]) >= 1:
+            print "\nPress 'Y' to load more, or any other key to return.\n"
+            if raw_input("> ").upper() == "Y":
+                interface.scrn_clr()
+                interface.CampusInfo().title()
+                sesh_getter(sesh[5:])
+            else:
+                interface.scrn_clr()
+                interface.CampusInfo().__str__()
+                interface.CampusInfo().choice()
         else:
+            print "\nPress any key to return.\n"
+            raw_input("> ")
             interface.scrn_clr()
             interface.CampusInfo().__str__()
             interface.CampusInfo().choice()
