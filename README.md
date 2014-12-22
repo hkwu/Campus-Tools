@@ -14,3 +14,6 @@ Information related to on-campus food. Features include:
 
 ## Campus Weather
 Check the weather sourced from the campus weather station.
+
+## Campus Info
+Find out about upcoming employer information sessions.
