@@ -56,12 +56,12 @@ Description: {}""".format(infosession['employer'], infosession['date'],
                           infosession['audience'], infosession['programs'],
                           infosession['description'])
             print "-" * 20
-        print "Press any key to return.\n"
+        print "\nPress any key to return.\n"
         raw_input("> ")
         import interface
         interface.scrn_clr()
-        interface.CampusWeather().__str__()
-        interface.CampusWeather().choice()
+        interface.CampusInfo().__str__()
+        interface.CampusInfo().choice()
 
 
 def infosesh_user_enters():
