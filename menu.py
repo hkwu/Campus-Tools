@@ -67,7 +67,8 @@ def open_outlets():
     open_now = []
     for outlet in locations:
         if outlet['is_open_now']:
-            open_now.append(outlet['outlet_name'])
+            open_now.append(outlet['outlet_name'] +
+                            " ({})".format(outlet['building']))
     outlet_printer(open_now)
 
 
