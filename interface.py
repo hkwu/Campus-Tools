@@ -37,11 +37,11 @@ class TopMenu(Menu):
     def __init__(self):
         super(TopMenu, self).__init__("CAMPUS TOOLS", "CAMPUS TUTORS",
                                       "CAMPUS FOOD", "CAMPUS WEATHER",
-                                      "EXIT")
+                                      "CAMPUS INFO", "EXIT")
 
     def choice(self):
         usr_input = raw_input("> ").upper()
-        while usr_input not in ["4", "EXIT"]:
+        while usr_input not in ["5", "EXIT"]:
             if usr_input in ["1", "CAMPUS TUTORS"]:
                 scrn_clr()
                 CampusTutors().__str__()
@@ -54,6 +54,10 @@ class TopMenu(Menu):
                 scrn_clr()
                 CampusWeather().__str__()
                 CampusWeather().choice()
+            elif usr_input in ["4", "CAMPUS INFO"]:
+                scrn_clr()
+                CampusInfo().__str__()
+                CampusInfo().choice()
             else:
                 scrn_clr()
                 TopMenu().__str__()
@@ -139,6 +143,29 @@ class CampusWeather(Menu):
                 scrn_clr()
                 CampusWeather().__str__()
                 CampusWeather().choice()
+        else:
+            scrn_clr()
+            TopMenu().__str__()
+            TopMenu().choice()
+
+
+class CampusInfo(Menu):
+    """The Campus Info menu"""
+    def __init__(self):
+        super(CampusInfo, self).__init__("CAMPUS INFO",
+                                         "EMPLOYER INFOSESSIONS", "RETURN")
+
+    def choice(self):
+        usr_input = raw_input("> ").upper()
+        while usr_input not in ["2", "RETURN"]:
+            if usr_input in ["1", "EMPLOYER INFOSESSIONS"]:
+                scrn_clr()
+                import info
+                info.infosesh_user_enters()
+            else:
+                scrn_clr()
+                CampusInfo().__str__()
+                CampusInfo().choice()
         else:
             scrn_clr()
             TopMenu().__str__()
