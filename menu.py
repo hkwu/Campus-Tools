@@ -4,13 +4,12 @@ from uwaterlooapi import UWaterlooAPI
 import config
 
 uw = UWaterlooAPI(api_key=config.super_secret_key)
-menu = uw.menu()
-locations = uw.locations()
 
 
 # ====================================================
 def curr_menu(location, meal, day):
     """curr_menu() outputs the daily menu"""
+    menu = uw.menu()
     for outlet in menu['outlets']:
         if outlet['outlet_name'].lower() == location:
             outlet_name = outlet['outlet_name']
@@ -64,6 +63,7 @@ def menu_user_enters():
 def open_outlets():
     """determines which outlets are open at the
     current time"""
+    locations = uw.locations()
     open_now = []
     for outlet in locations:
         if outlet['is_open_now']:
