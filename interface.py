@@ -153,19 +153,27 @@ class CampusInfo(Menu):
     """The Campus Info menu"""
     def __init__(self):
         super(CampusInfo, self).__init__("CAMPUS INFO",
-                                         "EMPLOYER INFOSESSIONS", "RETURN")
+                                         "EMPLOYER INFOSESSIONS", "GOOSEWATCH",
+                                         "RETURN")
 
     def choice(self):
         usr_input = raw_input("> ").upper()
-        while usr_input not in ["2", "RETURN"]:
+        while usr_input not in ["3", "RETURN"]:
             if usr_input in ["1", "EMPLOYER INFOSESSIONS"]:
                 scrn_clr()
                 import info
                 info.infosesh_user_enters()
+                break
+            elif usr_input in ["2", "GOOSEWATCH"]:
+                scrn_clr()
+                import info
+                info.goosewatch_user_enters()
+                break
             else:
                 scrn_clr()
                 CampusInfo().__str__()
                 CampusInfo().choice()
+                break
         else:
             scrn_clr()
             TopMenu().__str__()

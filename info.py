@@ -1,10 +1,6 @@
 __author__ = 'Kelvin Wu'
 
-from uwaterlooapi import UWaterlooAPI
 import config
-
-uw = UWaterlooAPI(api_key=config.super_secret_key)
-infosesh = uw.infosessions()
 
 
 # ====================================================
@@ -73,8 +69,11 @@ Description: {}""".format(infosession['employer'], infosession['date'],
 
 def infosesh_user_enters():
     """wrapper for sesh_getter"""
+    from uwaterlooapi import UWaterlooAPI
     import interface
     interface.CampusInfo().title()
+    uw = UWaterlooAPI(api_key=config.super_secret_key)
+    infosesh = uw.infosessions()
     if not infosesh:
         print "No one seems to be holding any infosessions right now!\n"
         print "Press any key to return.\n"
@@ -84,4 +83,74 @@ def infosesh_user_enters():
         interface.CampusInfo().choice()
     else:
         sesh_getter(infosesh)
+# ====================================================
+
+
+# ====================================================
+def goosewatch(goose_info):
+    """prints the goosewatch information"""
+    import dateutil.parser
+    if len(goose_info) >= 5:
+        print "The geese have taken over these locations:\n", "-" * 20
+        for goose_location in goose_info[0:5]:
+            parsed_date = dateutil.parser.parse(goose_location['updated'])
+            print """Location: {}
+Latitude: {}
+Longitude: {}
+Last Update: {}""".format(goose_location['location'],
+                          goose_location['latitude'],
+                          goose_location['longitude'],
+                          parsed_date.strftime('%B %d, %Y'))
+            print "-" * 20
+        import interface
+        if len(goose_info[5:]) >= 1:
+            print "\nPress 'Y' to load more, or any other key to return.\n"
+            if raw_input("> ").upper() == "Y":
+                interface.scrn_clr()
+                interface.CampusInfo().title()
+                goosewatch(goose_info[5:])
+            else:
+                interface.scrn_clr()
+                interface.CampusInfo().__str__()
+                interface.CampusInfo().choice()
+        else:
+            print "\nPress any key to return.\n"
+            raw_input("> ")
+            interface.scrn_clr()
+            interface.CampusInfo().__str__()
+            interface.CampusInfo().choice()
+    else:
+        for goose_location in goose_info:
+            print "The geese have taken over these locations:\n", "-" * 20
+            print """Location: {}
+Latitude: {}
+Longitude: {}
+Last Update: {}""".format(goose_location['location'], goose_location['latitude'],
+                          goose_location['longitude'], goose_location['updated'])
+            print "-" * 20
+        print "\nPress any key to return.\n"
+        raw_input("> ")
+        import interface
+        interface.scrn_clr()
+        interface.CampusInfo().__str__()
+        interface.CampusInfo().choice()
+
+
+def goosewatch_user_enters():
+    """wrapper for goosewatch"""
+    import interface
+    import requests
+    resp = requests.get("https://api.uwaterloo.ca/v2/resources/goosewatch.json",
+                        params={'key':config.super_secret_key})
+    interface.CampusInfo().title()
+    gw = resp.json()['data']
+    if not gw:
+        print "The campus is currently safe from geese. Check again later!\n"
+        print "Press any key to return.\n"
+        raw_input("> ")
+        interface.scrn_clr()
+        interface.CampusInfo().__str__()
+        interface.CampusInfo().choice()
+    else:
+        goosewatch(gw)
 # ====================================================
