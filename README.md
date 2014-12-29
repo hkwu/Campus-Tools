@@ -16,4 +16,6 @@ Information related to on-campus food. Features include:
 Check the weather sourced from the campus weather station.
 
 ## Campus Info
-Find out about upcoming employer information sessions.
+Miscellaneous campus information.
+* Find out about upcoming employer information sessions
+* Stay safe from mating geese
