@@ -1,6 +1,6 @@
 Campus-Tools
 ===================
-A collection of code using UWaterloo API. Python shell by Albert O'Connor.
+A collection of code using the UWaterloo API. API shell written by Albert O'Connor.
 
 ## Campus Tutors
 Find available tutors to hire for various courses.
