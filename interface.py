@@ -33,7 +33,7 @@ class Menu(object):
 
 
 class TopMenu(Menu):
-    """Base menu class"""
+    """The home menu"""
     def __init__(self):
         super(TopMenu, self).__init__("CAMPUS TOOLS", "CAMPUS TUTORS",
                                       "CAMPUS FOOD", "CAMPUS WEATHER",
