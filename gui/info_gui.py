@@ -30,24 +30,6 @@ def sesh_getter():
                     infosession['audience'], infosession['programs'],
                     infosession['description'])
     return text
-
-
-# def infosesh_user_enters():
-#     """wrapper for sesh_getter"""
-#     from uwaterlooapi import UWaterlooAPI
-#     import interface
-#     interface.CampusInfo().title()
-#     uw = UWaterlooAPI(api_key=config.super_secret_key)
-#     infosesh = uw.infosessions()
-#     if not infosesh:
-#         print "No one seems to be holding any infosessions right now!\n"
-#         print "Press any key to return.\n"
-#         raw_input("> ")
-#         interface.scrn_clr()
-#         interface.CampusInfo().__str__()
-#         interface.CampusInfo().choice()
-#     else:
-#         sesh_getter(infosesh)
 # ====================================================
 
 
