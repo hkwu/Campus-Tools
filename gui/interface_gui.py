@@ -9,7 +9,7 @@ import sys
 # ====================================================
 base = Tk()
 base.resizable(width=FALSE, height=FALSE)
-base.title("CAMPUS TOOLS by {}".format(__author__))
+base.title("CAMPUS TOOLS by Kelvin Wu")
 
 scrn_height = base.winfo_screenheight()
 scrn_width = base.winfo_screenwidth()
