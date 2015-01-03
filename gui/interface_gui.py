@@ -64,7 +64,7 @@ def make_left_scrn(text):
     text"""
     left_scrn = Label(left_frame, text=text, justify=LEFT, anchor=NW,
                       fg="white", bg="black", bd=20, relief=SUNKEN,
-                      font="Arial", wraplength=550)
+                      font="Arial", wraplength=540)
     left_scrn.pack(fill=BOTH, expand=1)
 
 
@@ -144,8 +144,8 @@ def campustutors():
         if not response:
             make_left_scrn('Sorry, that course is not on the list!')
         else:
-            make_left_scrn("Here is the tutor information for your course:\n"
-                           "--------------------\n" +
+            make_left_scrn('Here is the tutor information for your course:\n' +
+                           '--------------------\n' +
                            response)
 # ====================================================
 
@@ -264,6 +264,7 @@ def campusfood():
                     make_left_text(response)
         except ValueError:
             clr_left()
+			
             make_left_scrn('Please enter a number.')
             return None
 
@@ -287,7 +288,7 @@ def campusfood():
 
 # ====================================================
 def campusinfo():
-    """Campus Info screen"""
+    """Campus Info screen, two options"""
     clr_frames()
 
     # Functions
