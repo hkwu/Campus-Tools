@@ -2,6 +2,8 @@ Campus-Tools
 ===================
 A collection of code using the UWaterloo API. API shell written by Albert O'Connor.
 
+Available as a GUI.
+
 ## Campus Tutors
 Find available tutors to hire for various courses.
 
@@ -10,7 +12,6 @@ Information related to on-campus food. Features include:
 * Current open outlets
 * Menu lookup
 * Nutrition table lookup
-* ...
 
 ## Campus Weather
 Check the weather sourced from the campus weather station.
