@@ -127,7 +127,7 @@ def campustutors():
     else:
         import tutors_gui
 
-        response = tutors_gui.info_getter(course_letter, course_number)
+        response = tutors_gui.info_getter(course_letter.upper(), course_number)
         if not response:
             make_left_scrn('Sorry, that course is not on the list!')
         else:
