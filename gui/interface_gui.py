@@ -64,7 +64,7 @@ def make_left_scrn(text):
     text"""
     left_scrn = Label(left_frame, text=text, justify=LEFT, anchor=NW,
                       fg="white", bg="black", bd=20, relief=SUNKEN,
-                      font="Arial", wraplength=500)
+                      font="Arial", wraplength=550)
     left_scrn.pack(fill=BOTH, expand=1)
 
 
@@ -93,7 +93,20 @@ def homescreen():
     """creates the main screen"""
     clr_frames()
 
-    make_left_scrn('Welcome to Campus Tools.')
+    text = ('Welcome to Campus Tools.\n'
+            '====================\n\n'
+            'Tutors: Find out about tutor availability for your '
+            'courses and how to get in touch with them.\n\n'
+            "Food: Figure out where to eat today and what's "
+            'on the menu at your favourite outlet. '
+            'Find out whether or not your meal is actually '
+            'as healthy as you think!\n\n'
+            'Weather: Get the latest weather updates straight '
+            'from the campus weather station.\n\n'
+            'Info: Check for upcoming sessions hosted by '
+            'recruiting companies on campus. '
+            'Keep yourself safe from the mating geese.')
+    make_left_scrn(text)
 
     make_right_button('TUTORS', campustutors)
     make_right_button('FOOD', campusfood)
@@ -164,7 +177,13 @@ def campusweather():
                        '--------------------\n' +
                        weather_gui.trivial_weather_get())
 
-    make_left_scrn('Campus Weather. Select your option.')
+    text = ('Campus Weather. Select your option.\n'
+            '====================\n\n'
+            'Basic Weather: Everything you need to decide '
+            'if today is a good day to head outside.\n\n'
+            'Trivial Weather: Interesting weather information '
+            "that's irrelevant to your daily stroll.")
+    make_left_scrn(text)
 
     make_right_button('BASIC\nWEATHER', basicweather)
     make_right_button('TRIVIAL\nWEATHER', trivialweather)
@@ -248,7 +267,16 @@ def campusfood():
             make_left_scrn('Please enter a number.')
             return None
 
-    make_left_scrn('Campus Food. Select your option.')
+    text = ('Campus Food. Select your option.\n'
+            '====================\n\n'
+            "What's Open?: Get a live indication of whether "
+            'or not that outlet is open for a quick bite.\n\n'
+            'Search For Menus: Figure out whether or not '
+            "they're serving your favourite dish without "
+            'stepping out of your room.\n\n'
+            "Nutrition Info: Make sure you're getting enough "
+            'vitamins.')
+    make_left_scrn(text)
 
     make_right_button("WHAT'S\nOPEN?", what_is_open)
     make_right_button('SEARCH\nFOR MENUS', menu_search)
@@ -281,7 +309,12 @@ def campusinfo():
                        '--------------------\n' +
                        info_gui.goosewatch())
 
-    make_left_scrn('Campus Info. Select your option.')
+    text = ('Campus Food. Select your option.\n'
+            '====================\n\n'
+            'Employer Infosessions: Never miss another chance '
+            'to connect with your future employer.\n\n'
+            'Goosewatch: Stay on top of the geese this mating season.')
+    make_left_scrn(text)
 
     # These buttons have slightly longer labels so they are
     # made custom
