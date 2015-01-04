@@ -238,7 +238,7 @@ def campusfood():
         if not response:
             make_left_scrn("Sorry, we couldn't find that outlet's menu!")
         elif response == 'none_day':
-            make_left_scrn("Sorry, there is no menu available for that day!")
+            make_left_scrn('Sorry, there is no menu available for that day!')
         elif response == 'none_meal_type':
             make_left_scrn("Sorry, we don't serve that here!")
         else:

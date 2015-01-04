@@ -61,9 +61,11 @@ def outlet_printer(lst_of_outlets):
         text = ''
         for outlet in lst_of_outlets:
             if u"\u2019" in outlet:
-                outlet = outlet.replace(u"\u2019", "'")
-            text += u"{}: {}\n".format(lst_of_outlets.index(outlet) + 1,
-                                       outlet)
+                text += u"{}: {}\n".format(lst_of_outlets.index(outlet) + 1,
+                                           outlet.replace(u"\u2019", "'"))
+            else:
+                text += u"{}: {}\n".format(lst_of_outlets.index(outlet) + 1,
+                                           outlet)
         return text
     else:
         return False
