@@ -79,8 +79,8 @@ def outlet_printer(lst_of_outlets):
         print "These places are open right now:\n", "-" * 20
         for outlet in lst_of_outlets:
             if u"\u2019" in outlet:
-                print u"{}: {}\n".format(lst_of_outlets.index(outlet) + 1,
-                                         outlet.replace(u"\u2019", "'"))
+                print u"{}: {}".format(lst_of_outlets.index(outlet) + 1,
+                                       outlet.replace(u"\u2019", "'"))
             else:
                 print u"{}: {}".format(lst_of_outlets.index(outlet) + 1,
                                        outlet)
