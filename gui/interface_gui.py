@@ -230,6 +230,7 @@ def campusfood():
             return None
 
         import menu_gui
+
         response = (menu_gui.curr_menu(location, day, meal.lower()))
 
         clr_left()
@@ -241,9 +242,10 @@ def campusfood():
         elif response == 'none_meal_type':
             make_left_scrn("Sorry, we don't serve that here!")
         else:
-            make_left_text('This is the {} {} for {}:\n' +
-                           '--------------------\n' +
-                           response)
+            text = ('This is the {} {} for {}:\n' +
+                    '--------------------\n' +
+                    response).format(day, meal.lower(), location)
+            make_left_text(text)
 
     def nutrition_search():
         try:
@@ -264,7 +266,7 @@ def campusfood():
                     make_left_text(response)
         except ValueError:
             clr_left()
-			
+
             make_left_scrn('Please enter a number.')
             return None
 
