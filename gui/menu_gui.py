@@ -11,7 +11,7 @@ def curr_menu(location, meal, day):
     """curr_menu() outputs the daily menu"""
     menu = uw.menu()
     for outlet in menu['outlets']:
-        if outlet['outlet_name'].lower() == location:
+        if outlet['outlet_name'] == location:
             outlet_menus = outlet['menu']
             for daily_menus in outlet_menus:
                 if daily_menus['day'] == day:

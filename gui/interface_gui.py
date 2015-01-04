@@ -216,7 +216,7 @@ def campusfood():
         location = buttonbox('Select the location you are looking up.',
                              '', ['Bon Appetit', 'Festival Fare',
                                   "Mudie's", 'PAS Lounge', 'Pastry Plus',
-                                  'REVelations'])
+                                  'REVelation'])
         if not location:
             return None
         day = buttonbox('Select the day you want to check.', '',
@@ -231,7 +231,7 @@ def campusfood():
 
         import menu_gui
 
-        response = (menu_gui.curr_menu(location, day, meal.lower()))
+        response = (menu_gui.curr_menu(location, meal.lower(), day))
 
         clr_left()
 
@@ -242,7 +242,7 @@ def campusfood():
         elif response == 'none_meal_type':
             make_left_scrn("Sorry, we don't serve that here!")
         else:
-            text = ('This is the {} {} for {}:\n' +
+            text = ('This is the {} {} menu for {}:\n' +
                     '--------------------\n' +
                     response).format(day, meal.lower(), location)
             make_left_text(text)
