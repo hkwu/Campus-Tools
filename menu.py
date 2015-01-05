@@ -150,10 +150,18 @@ def nutrition_user_enters():
     """gets the product ID for nutrition_info"""
     import interface
     interface.CampusFood().title()
-    nutrition_info(int(raw_input("Enter your product ID: ")))
-    print "Press any key to return.\n"
-    raw_input("> ")
-    interface.scrn_clr()
-    interface.CampusFood().__str__()
-    interface.CampusFood().choice()
+    try:
+        nutrition_info(int(raw_input("Enter your product ID: ")))
+        print "Press any key to return.\n"
+        raw_input("> ")
+        interface.scrn_clr()
+        interface.CampusFood().__str__()
+        interface.CampusFood().choice()
+    except ValueError:
+        print "\nPlease enter a number.\n"
+        print "Press any key to return.\n"
+        raw_input("> ")
+        interface.scrn_clr()
+        interface.CampusFood().__str__()
+        interface.CampusFood().choice()
 # ====================================================
