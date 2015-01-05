@@ -207,7 +207,7 @@ def campusfood():
         if not response:
             make_left_scrn("Sorry, it seems like no one's open right now!")
         else:
-            make_left_scrn('These places are open right now:\n' +
+            make_left_text('These places are open right now:\n' +
                            '--------------------\n' +
                            response +
                            '--------------------')
@@ -245,7 +245,7 @@ def campusfood():
             text = ('This is the {} {} menu for {}:\n' +
                     '--------------------\n' +
                     response).format(day, meal.lower(), location)
-            make_left_text(text)
+            make_left_scrn(text)
 
     def nutrition_search():
         try:
