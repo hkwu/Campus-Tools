@@ -120,13 +120,16 @@ Last Update: {}""".format(goose_location['location'],
             interface.CampusInfo().__str__()
             interface.CampusInfo().choice()
     else:
+        print "The geese have taken over these locations:\n", "-" * 20
         for goose_location in goose_info:
-            print "The geese have taken over these locations:\n", "-" * 20
+            parsed_date = dateutil.parser.parse(goose_location['updated'])
             print """Location: {}
 Latitude: {}
 Longitude: {}
-Last Update: {}""".format(goose_location['location'], goose_location['latitude'],
-                          goose_location['longitude'], goose_location['updated'])
+Last Update: {}""".format(goose_location['location'],
+                          goose_location['latitude'],
+                          goose_location['longitude'],
+                          parsed_date.strftime('%B %d, %Y'))
             print "-" * 20
         print "\nPress any key to return.\n"
         raw_input("> ")
@@ -136,6 +139,9 @@ Last Update: {}""".format(goose_location['location'], goose_location['latitude']
         interface.CampusInfo().choice()
 
 
+# Sending a GET request and parsing the JSON response
+# manually since the relevant function doesn't exist in
+# the UWaterlooAPI module
 def goosewatch_user_enters():
     """wrapper for goosewatch"""
     import interface

@@ -33,6 +33,9 @@ def sesh_getter():
 # ====================================================
 
 
+# Sending a GET request and parsing the JSON response
+# manually since the relevant function doesn't exist in
+# the UWaterlooAPI module
 # ====================================================
 def goosewatch():
     """prints the goosewatch information"""
