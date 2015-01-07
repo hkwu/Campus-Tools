@@ -6,7 +6,7 @@ import config
 # ====================================================
 def sesh_getter():
     """takes a list of infosessions and prints the
-    elements in groups of 5"""
+    elements"""
     from uwaterlooapi import UWaterlooAPI
 
     uw = UWaterlooAPI(api_key=config.super_secret_key)
