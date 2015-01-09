@@ -32,10 +32,13 @@ def info_getter(course_letter, course_number):
             if tutor_info['subject'] == course_letter \
                     and tutor_info['catalog_number'] == course_number:
                 print "\n", "-" * 20
-                print "Course: {} {} {}\n# of Tutors: {}\nContact: {}" \
+                print ("Course: {} {} {}\n"
+                       "# of Tutors: {}\n"
+                       "Contact: {}\n"
+                       "--------------------\n") \
                     .format(tutor_info['subject'], tutor_info['catalog_number'],
                             tutor_info['title'], tutor_info['tutors_count'],
-                            tutor_info['contact_url']), "\n", "-" * 20, "\n"
+                            tutor_info['contact_url'])
                 break
         else:
             print "\nSorry, that course is not on the list.\n"

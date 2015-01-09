@@ -10,18 +10,16 @@ weather = uw.current_weather()
 # ====================================================
 def basic_weather_get():
     """extract basic information from weather"""
-    print "Current Temperature (degrees): {}" \
-        .format(weather['temperature_current_c'])
-    print "Humidex: {}".format(weather['humidex_c'])
-    print "Windchill: {}".format(weather['windchill_c'])
-    print "24 Hour (High / Low): {} / {}" \
-        .format(weather['temperature_24hr_max_c'],
-                weather['temperature_24hr_min_c'])
-    print "Precipitation (mm) (15 min / 1 hr / 24 hr): {} / {} / {}" \
-        .format(weather['precipitation_15min_mm'],
-                weather['precipitation_1hr_mm'],
-                weather['precipitation_24hr_mm'])
-    print "-" * 20, "\n"
+    print ("Current Temperature (degrees): {}\n"
+           "Humidex: {}\n"
+           "Windchill: {}\n"
+           "24 Hour (High / Low): {} / {}\n"
+           "Precipitation (mm) (15 min / 1 hr / 24 hr): {} / {} / {}\n"
+           "--------------------\n") \
+        .format(weather['temperature_current_c'], weather['humidex_c'],
+                weather['windchill_c'], weather['temperature_24hr_max_c'],
+                weather['temperature_24hr_min_c'], weather['precipitation_15min_mm'],
+                weather['precipitation_1hr_mm'], weather['precipitation_24hr_mm'])
 
 
 def basic_user_enters():
@@ -40,18 +38,19 @@ def basic_user_enters():
 # ====================================================
 def trivial_weather_get():
     """extract trivial information from weather"""
-    print "Station (Latitude / Longitude): {} / {}" \
-        .format(weather['latitude'], weather['longitude'])
-    print "Station Elevation: {} m".format(weather['elevation_m'])
-    print "Relative Humidity: {} %".format(weather['relative_humidity_percent'])
-    print "Dew Point: {}".format(weather['dew_point_c'])
-    print "Wind (Speed / Direction): {} km/h / {} degrees" \
-        .format(weather['wind_speed_kph'], weather['wind_direction_degrees'])
-    print "Pressure (Amount / Trend): {} kPa / {}" \
-        .format(weather['pressure_kpa'], weather['pressure_trend'])
-    print "Incoming Shortwave Radiation: {} W/m^2" \
-        .format(weather['incoming_shortwave_radiation_wm2'])
-    print "-" * 20, "\n"
+    print ("Station (Latitude / Longitude): {} / {}\n"
+           "Station Elevation: {} m\n"
+           "Relative Humidity: {} %\n"
+           "Dew Point: {}\n"
+           "Wind (Speed / Direction): {} km/h / {} degrees\n"
+           "Pressure (Amount / Trend): {} kPa / {}\n"
+           "Incoming Shortwave Radiation: {} W/m^2\n"
+           "--------------------\n") \
+        .format(weather['latitude'], weather['longitude'],
+                weather['elevation_m'], weather['relative_humidity_percent'],
+                weather['dew_point_c'], weather['wind_speed_kph'],
+                weather['wind_direction_degrees'], weather['pressure_kpa'],
+                weather['pressure_trend'], weather['incoming_shortwave_radiation_wm2'])
 
 
 def trivial_user_enters():
