@@ -83,6 +83,7 @@ def make_left_text(text):
                              bg="black", bd=20, relief=SUNKEN,
                              font="Arial")
     left_scrn.insert(INSERT, text)
+    left_scrn.configure(state=DISABLED)
     left_scrn.pack(fill=BOTH, expand=1)
 # ====================================================
 
